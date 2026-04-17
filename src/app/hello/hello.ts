@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
+import { readonly } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-hello',
@@ -7,6 +8,39 @@ import { Component } from '@angular/core';
   styleUrl: './hello.scss',
 })
 export class Hello {
-
   protected title = 'Welcome to Modern Angular!';
+
+  protected isDisabled = false;
+
+  protected onClick() {
+    console.log('Button clicked!');
+    this.isDisabled = !this.isDisabled;
+  }
+
+  protected count = signal(0);
+
+  protected doubleCount = computed((): number => this.count() * 2);
+
+  private readonly countLog = effect(() => {
+    console.log('Count value changed:', this.count());
+  });
+  
+
+  //getDoubleCount() {
+    //console.log('getDoubleCount called');
+    //return this.count() * 2;
+  
+
+  protected increaseCounter() {
+    this.count.update((value) => value + 1);
+  }
+
+  protected decreaseCounter() {
+    this.count.update((value) => value - 1);
+  }
+
+  protected resetCounter() {
+    this.count.set(0);
+  }
 }
+
