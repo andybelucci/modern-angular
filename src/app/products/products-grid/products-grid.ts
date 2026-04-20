@@ -16,6 +16,7 @@ export class ProductsGrid {
       name: 'Premium Wireless Headphones',
       description: 'Experience the ultimate in wireless audio with our Premium Wireless Headphones.',
       price: 299.99,
+      originalPrice: 399.99,
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ export class ProductsGrid {
       name: '4K Ultra HD Smart TV',
       description: `Transform your living room into a home theater with our 4K Ultra HD Smart TV.`,
       price: 899.99,
+      originalPrice: 1199.99,
     },
   ]);
 }
