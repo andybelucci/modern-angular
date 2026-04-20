@@ -37,6 +37,17 @@ export class ProductsGrid {
     },
   ]);
 
+  protected readonly filteredProducts = () => {
+    const term = this.searchTerm().toLocaleLowerCase().trim();
+    if (!term) {
+      return this.products();
+    }
+    return this.products().filter((product) =>
+      product.name.toLocaleLowerCase().includes(term) ||
+      product.description.toLocaleLowerCase().includes(term)
+    );
+  }
+
   protected clearSearch(): void {
     this.searchTerm.set('');
   }
