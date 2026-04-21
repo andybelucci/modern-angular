@@ -46,13 +46,17 @@ export class ProductsGrid {
       product.name.toLocaleLowerCase().includes(term) ||
       product.description.toLocaleLowerCase().includes(term)
     );
+  };
+
+  protected onAddToCard(product: Product): void {
+    console.log('Product added to cart:', product.name);
   }
 
-  protected clearSearch(): void {
-    this.searchTerm.set('');
+  //protected clearSearch(): void {
+    //this.searchTerm.set('');
   }
 
-  protected trimSearchTerm(): void {
-    this.searchTerm.update((value) => value.trim());
-  }
-}
+  //protected trimSearchTerm(): void {
+    //this.searchTerm.update((value) => value.trim());
+  //}
+//}
